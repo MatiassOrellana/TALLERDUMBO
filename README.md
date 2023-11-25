@@ -1,5 +1,7 @@
 # TALLERDUMBO
 
+Nota los archivos están en la rama master....
+
 1) los endpoints están en el backend
 2) use webstorm para frontend
 3) use visual studio para backend
