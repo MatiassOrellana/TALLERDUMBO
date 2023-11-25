@@ -17,27 +17,25 @@ namespace TALLERDUMBOBackend.Controladores
     {
         private readonly DataContext _context;/*usa el datacontext*/
         private readonly IConfiguration _configuration;/*ocupa la configuracion para poder generar el token*/
-        private UsuarioIniciadoDTO usuarioIniciadoDTO;/*usuario conectado, esto solo funciona si hay 1 solo usuario*/
         public AutentificacionController(DataContext context, IConfiguration configuration)
         {
             _context = context;
             _configuration = configuration;
-            usuarioIniciadoDTO = new UsuarioIniciadoDTO();
         }
 
         /*HTTPPost porque se está enviando los parametros del usuario y la contraseña y eso se debe verificar*/
         [HttpPost("Login")]
-        public async Task<ActionResult<UsuarioIniciadoDTO>> IniciarSession(IniciarSessionDTO iniciarSessionDTO)
+        public async Task<ActionResult<string>> IniciarSession(IniciarSessionDTO iniciarSessionDTO)
         {
             /*busca al usuario con esos parametros*/
             var usuario = await _context.Usuarios.FirstOrDefaultAsync(
-                u => u.UsuarioLogin == iniciarSessionDTO.UsuarioLogin);
+                u => u.UsuarioLogin == iniciarSessionDTO.username);
 
             /*si no encontro el usuario*/
             if (usuario is null) return BadRequest("Las credenciales son incorrectas, perdedor!!!");
 
             /*la verificacion del usuario con respecto a la contraseña*/
-            var result = BCrypt.Net.BCrypt.Verify(iniciarSessionDTO.contraseña, usuario.contraseña);
+            var result = BCrypt.Net.BCrypt.Verify(iniciarSessionDTO.password, usuario.contraseña);
 
             /*salio mal*/
             if(!result) return BadRequest("Las credenciales son incorrectas, perdedor!!!");
@@ -45,16 +43,8 @@ namespace TALLERDUMBOBackend.Controladores
             /*llama a crear el token almacenado en al variable token*/
             var token = CreateToken(usuario);
 
-            /*se actualiza el usuario para que sea reconocible*/
-            usuarioIniciadoDTO = new UsuarioIniciadoDTO()
-            {
-                token = token,
-                UsuarioLogin = usuario.UsuarioLogin,
-                contrasena = usuario.contraseña 
-            };
-
             /*retorna el usuario*/
-            return usuarioIniciadoDTO;
+            return token;
         }
 
         /*metodo privado para generar el token*/
@@ -92,7 +82,7 @@ namespace TALLERDUMBOBackend.Controladores
         public ActionResult CerrarSesion()
         {
             /*resetea al usuario*/
-            usuarioIniciadoDTO = new UsuarioIniciadoDTO();
+            
 
             return Ok("Sesión cerrada exitosamente");
         }

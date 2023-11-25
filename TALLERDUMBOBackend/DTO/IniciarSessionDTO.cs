@@ -5,10 +5,10 @@
 
         /**Estos atributos son del administrador solamente**/
         /**el usuario del administrador**/
-        public string? UsuarioLogin { get; set; }
+        public string? username { get; set; }
 
         /**la contraseña del administrador**/
-        public string? contraseña { get; set; }
+        public string? password { get; set; }
 
     }
 }
