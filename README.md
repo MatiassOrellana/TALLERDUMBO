@@ -1,8 +1,10 @@
 # TALLERDUMBO
 
 1) vaya a una carpeta en donde quiera guardarse
-2) copie la rama main en esa carpeta, solamente le aparecerá el readme
-3) 
+2) cree una carpeta vacia
+3) luego vaya a la rama del master
+4) descarguelos manualmente, no use comandos
+5) abra el backend y el frontend
 
 
 Nota los archivos están en la rama master, o sea, vaya al branch y seleccione master....
