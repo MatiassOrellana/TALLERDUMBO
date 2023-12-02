@@ -7,7 +7,7 @@
 5) en el taller del backend elimine ese archivo "TALLERDUMBOBackend" que tiene como icono una hoja
 6) abra el backend y el frontend
 7) instale: dotnet tool install --global dotnet-ef --version 7.0.0
-8) 
+8) en el archivo launchSettings.json el numero de la ruta reemplacela por 3000
 9) los endpoints están en el backend, en la carpeta que dice "endponits", exportarlos a postman
 10) use webstorm para frontend
 11) use visual studio para backend
