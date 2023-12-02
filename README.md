@@ -1,5 +1,10 @@
 # TALLERDUMBO
 
+1) vaya a una carpeta en donde quiera guardarse
+2) copie la rama main en esa carpeta, solamente le aparecerá el readme
+3) 
+
+
 Nota los archivos están en la rama master, o sea, vaya al branch y seleccione master....
 
 1) los endpoints están en el backend, en la carpeta que dice "endponits"
