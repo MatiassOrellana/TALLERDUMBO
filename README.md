@@ -4,8 +4,8 @@
 2) cree una carpeta vacia
 3) luego vaya a la rama del master de este repositorio
 4) descarguelos manualmente, no use comandos
-5) en el taller del backend elimine ese archivo 
-6) abra el backend y el frontend "TALLERDUMBOBackend" que tiene como icono una hoja
+5) en el taller del backend elimine ese archivo "TALLERDUMBOBackend" que tiene como icono una hoja
+6) abra el backend y el frontend 
 7) los endpoints están en el backend, en la carpeta que dice "endponits", exportarlos a postman
 8) use webstorm para frontend
 9) use visual studio para backend
